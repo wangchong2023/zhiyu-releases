@@ -1,0 +1,37 @@
+[
+  {
+    "id": "toc-generator",
+    "name": "TOC Generator",
+    "author": "ZhiYu Team",
+    "description": "Auto-generate table of contents from Markdown headings.",
+    "repo": "zhiyu-contrib/toc-generator"
+  },
+  {
+    "id": "link-preview",
+    "name": "Link Preview",
+    "author": "ZhiYu Team",
+    "description": "Auto fetches URL meta and generates rich preview cards.",
+    "repo": "zhiyu-contrib/link-preview"
+  },
+  {
+    "id": "ai-translator",
+    "name": "AI Translator",
+    "author": "ZhiYu Team",
+    "description": "Auto translate text using AI with multi-language support.",
+    "repo": "zhiyu-contrib/ai-translator"
+  },
+  {
+    "id": "markdown-beautifier",
+    "name": "Markdown Beautifier",
+    "author": "ZhiYu Team",
+    "description": "Auto format and beautify Markdown documents.",
+    "repo": "zhiyu-contrib/markdown-beautifier"
+  },
+  {
+    "id": "word-counter",
+    "name": "Word Counter",
+    "author": "ZhiYu Team",
+    "description": "Real-time word, character, and reading time statistics.",
+    "repo": "zhiyu-contrib/word-counter"
+  }
+]
