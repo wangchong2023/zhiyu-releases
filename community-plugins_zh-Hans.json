@@ -3,35 +3,35 @@
     "id": "toc-generator",
     "name": "目录生成器",
     "author": "智宇团队",
-    "description": "基于 Markdown 标题自动生成侧边栏或内文目录。",
+    "description": "一键解析 Markdown 标题并生成交互式、可跳转的文档大纲目录。支持自定义标题级数、自动编号、以及平滑定位滚动，极大地改善长文阅读和知识整理的体验。",
     "repo": "wangchong2023/zhiyu-releases"
   },
   {
     "id": "link-preview",
     "name": "链接预览",
     "author": "智宇团队",
-    "description": "自动提取 URL 元数据并生成富文本预览卡片。",
+    "description": "智能抓取远程网页的 OpenGraph 和元数据，自动插入美观的卡片式链接卡片（含缩略图、标题和描述）。完美支持各类主流社交媒体与技术博客的富文本转化，内置轻量化安全缓存。",
     "repo": "wangchong2023/zhiyu-releases"
   },
   {
     "id": "ai-translator",
     "name": "AI 翻译官",
     "author": "智宇团队",
-    "description": "利用 AI 提供多语言智能文本翻译服务。",
+    "description": "深度整合大语言模型（LLM），提供语境感知的上下文翻译。支持学术、技术、日常等多种语气调节，可自动保留专有名词与 Markdown 标记，助您无缝开展跨语言阅读与写作。",
     "repo": "wangchong2023/zhiyu-releases"
   },
   {
     "id": "markdown-beautifier",
     "name": "Markdown 排版大师",
     "author": "智宇团队",
-    "description": "自动格式化并美化 Markdown 文档排版。",
+    "description": "专业的 Markdown 格式美化与排版纠错工具。可一键规范化多余空行、统一列表缩进、对齐表格、清洗异常字符，严格遵循 GitHub Flavored Markdown 规范，瞬间让排版整洁雅致。",
     "repo": "wangchong2023/zhiyu-releases"
   },
   {
     "id": "word-counter",
     "name": "字数统计",
     "author": "智宇团队",
-    "description": "实时统计字数、字符数及预计阅读时间。",
+    "description": "针对 AI 知识库与 Markdown 深度优化的实时数据统计。自动过滤代码块、元数据 YAML 和标记符号，精准计算纯文本字数、字符数、段落数、以及多语言条件下的预计阅读时长。",
     "repo": "wangchong2023/zhiyu-releases"
   }
 ]
