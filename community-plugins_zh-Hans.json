@@ -2,35 +2,35 @@
   {
     "id": "toc-generator",
     "name": "目录生成器",
-    "author": "ZhiYu Team",
+    "author": "智宇团队",
     "description": "基于 Markdown 标题自动生成侧边栏或内文目录。",
     "repo": "wangchong2023/zhiyu-releases"
   },
   {
     "id": "link-preview",
     "name": "链接预览",
-    "author": "ZhiYu Team",
+    "author": "智宇团队",
     "description": "自动提取 URL 元数据并生成富文本预览卡片。",
     "repo": "wangchong2023/zhiyu-releases"
   },
   {
     "id": "ai-translator",
     "name": "AI 翻译官",
-    "author": "ZhiYu Team",
+    "author": "智宇团队",
     "description": "利用 AI 提供多语言智能文本翻译服务。",
     "repo": "wangchong2023/zhiyu-releases"
   },
   {
     "id": "markdown-beautifier",
     "name": "Markdown 排版大师",
-    "author": "ZhiYu Team",
+    "author": "智宇团队",
     "description": "自动格式化并美化 Markdown 文档排版。",
     "repo": "wangchong2023/zhiyu-releases"
   },
   {
     "id": "word-counter",
     "name": "字数统计",
-    "author": "ZhiYu Team",
+    "author": "智宇团队",
     "description": "实时统计字数、字符数及预计阅读时间。",
     "repo": "wangchong2023/zhiyu-releases"
   }
