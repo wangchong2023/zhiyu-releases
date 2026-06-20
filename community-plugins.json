@@ -3,6 +3,7 @@
     "id": "toc-generator",
     "name": "TOC Generator",
     "author": "ZhiYu Team",
+    "version": "0.0.1",
     "description": "Automatically parse headers within Markdown documents to construct a dynamic, clickable table of contents (TOC). Supports nested lists, customizable depth settings, and smooth anchor scrolling for enhanced long-form document navigation.",
     "repo": "wangchong2023/zhiyu-releases"
   },
@@ -10,6 +11,7 @@
     "id": "link-preview",
     "name": "Link Preview",
     "author": "ZhiYu Team",
+    "version": "0.0.1",
     "description": "Asynchronously parses remote URL metadata (Opengraph/Twitter Cards) to generate elegant, visual preview cards inline. Includes cover images, titles, descriptions, and site icons with secure cache management.",
     "repo": "wangchong2023/zhiyu-releases"
   },
@@ -17,6 +19,7 @@
     "id": "ai-translator",
     "name": "AI Translator",
     "author": "ZhiYu Team",
+    "version": "0.0.1",
     "description": "Seamlessly leverages LLM capabilities to translate selected text or whole paragraphs inline. Supports tone adjustments, domain-specific terminology preservation, and multi-language targets with high contextual accuracy.",
     "repo": "wangchong2023/zhiyu-releases"
   },
@@ -24,6 +27,7 @@
     "id": "markdown-beautifier",
     "name": "Markdown Beautifier",
     "author": "ZhiYu Team",
+    "version": "0.0.1",
     "description": "An advanced linting and formatting utility to beautify raw Markdown. Resolves trailing spaces, fixes unequal list spacing, standardizes line breaks, and prettifies tables according to standard GFM styles automatically.",
     "repo": "wangchong2023/zhiyu-releases"
   },
@@ -31,6 +35,7 @@
     "id": "word-counter",
     "name": "Word Counter",
     "author": "ZhiYu Team",
+    "version": "0.0.1",
     "description": "Provides comprehensive real-time statistics of Markdown documents. Excludes frontmatter, code blocks, and markdown markups to output pure word counts, character lengths, paragraph counts, and estimated reading speeds.",
     "repo": "wangchong2023/zhiyu-releases"
   }
