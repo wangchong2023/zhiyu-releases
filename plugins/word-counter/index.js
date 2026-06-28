@@ -1,8 +1,17 @@
 /**
- * Word Counter - 字数统计
- * 
- * 功能：实时统计 Markdown 文档的字数、字符数、段落数
- * 类型：本地插件（无需网络）
+ * @file Word Counter plugin for ZhiYu.
+ * @author  ZhiYu Team
+ * @version 1.0.0
+ * @description
+ *   Computes lightweight statistics for the current Markdown document on
+ *   every render: total words (CJK ideographs + Latin words), characters
+ *   (excluding whitespace), paragraphs and lines. Markdown markup is
+ *   stripped before counting so the numbers reflect prose only.
+ *
+ *   Required permissions (see manifest.json):
+ *     - log
+ *
+ * @license MIT
  */
 
 var stats = {
@@ -10,7 +19,13 @@ var stats = {
     history: []
 };
 
-// 统计文档
+/**
+ * Count words, characters, paragraphs and lines in a Markdown document.
+ *
+ * @param {string} content Full document content.
+ * @returns {{words:number,characters:number,paragraphs:number,lines:number}}
+ *          Statistics object with zeroed fields when input is empty.
+ */
 function countWords(content) {
     if (!content || typeof content !== 'string') {
         return {
@@ -20,32 +35,33 @@ function countWords(content) {
             lines: 0
         };
     }
-    
-    // 移除 Markdown 语法
+
+    // Strip Markdown markup so we count prose only.
     var cleaned = content
-        .replace(/```[\s\S]*?```/g, '')  // 代码块
-        .replace(/`[^`]+`/g, '')          // 行内代码
-        .replace(/!\[.*?\]\(.*?\)/g, '')  // 图片
-        .replace(/\[.*?\]\(.*?\)/g, '')   // 链接
-        .replace(/[#*_~`]/g, '')          // Markdown 符号
+        .replace(/```[\s\S]*?```/g, '')    // fenced code blocks
+        .replace(/`[^`]+`/g, '')            // inline code
+        .replace(/!\[.*?\]\(.*?\)/g, '')    // images
+        .replace(/\[.*?\]\(.*?\)/g, '')     // links
+        .replace(/[#*_~`]/g, '')            // markdown markers
         .trim();
-    
-    // 字数统计（中英文混合）
-    var chineseChars = cleaned.match(/[一-龥]/g) || [];
+
+    // Word count: treat every CJK ideograph as one word and every run of
+    // Latin letters as one word, then sum the two.
+    var chineseChars = cleaned.match(/[\u4e00-\u9fa5]/g) || [];
     var englishWords = cleaned.match(/[a-zA-Z]+/g) || [];
     var words = chineseChars.length + englishWords.length;
-    
-    // 字符统计（不含空格）
+
+    // Character count excluding whitespace.
     var characters = cleaned.replace(/\s+/g, '').length;
-    
-    // 段落统计
+
+    // Paragraph count: split on blank lines, ignore empty fragments.
     var paragraphs = content.split(/\n\n+/).filter(function(p) {
         return p.trim().length > 0;
     }).length;
-    
-    // 行数统计
+
+    // Line count.
     var lines = content.split('\n').length;
-    
+
     return {
         words: words,
         characters: characters,
@@ -54,28 +70,43 @@ function countWords(content) {
     };
 }
 
-// 生命周期
+/**
+ * Plugin lifecycle hook invoked by ZhiYu when the plugin is loaded.
+ * Registers ribbon items / commands and restores persisted statistics.
+ */
 function onLoad() {
-    ZhiYu.log('[Word Counter] v1.0.0 已加载 - 本地插件');
-    
-    ZhiYu.registerRibbonItem('textformat.123', '字数统计', 'showWordCount');
+    ZhiYu.log('[Word Counter] v1.0.0 loaded');
+
+    ZhiYu.registerRibbonItem('textformat.123', 'Word Counter', 'showWordCount');
     ZhiYu.registerCommand('count-words', 'showWordCountCommand');
-    
+
     var saved = ZhiYu.loadData('stats');
     if (saved) {
         try {
             stats = JSON.parse(saved);
-        } catch (e) {}
+        } catch (e) {
+            ZhiYu.log('[Word Counter] Failed to restore stats, using defaults');
+        }
     }
 }
 
+/**
+ * Plugin lifecycle hook invoked by ZhiYu when the plugin is unloaded.
+ * Persists counting statistics.
+ */
 function onUnload() {
     ZhiYu.saveData('stats', JSON.stringify(stats));
-    ZhiYu.log('[Word Counter] 已卸载');
+    ZhiYu.log('[Word Counter] unloaded');
 }
 
+/**
+ * ZhiYu post-process hook. Re-counts the document and records the result
+ * (keeping only the 10 most recent snapshots).
+ *
+ * @param {string} content Document content.
+ * @returns {string} The original content, unchanged.
+ */
 function postProcess(content) {
-    // 在后处理阶段统计
     var result = countWords(content);
     stats.totalCounts++;
     stats.history.push({
@@ -83,30 +114,36 @@ function postProcess(content) {
         words: result.words,
         characters: result.characters
     });
-    
-    // 只保留最近 10 次记录
+
+    // Keep only the last 10 snapshots to bound memory usage.
     if (stats.history.length > 10) {
         stats.history = stats.history.slice(-10);
     }
-    
+
     return content;
 }
 
+/**
+ * Ribbon item handler: shows the most recent word-count snapshot.
+ */
 function showWordCount() {
-    var msg = '字数统计\n\n';
-    msg += '统计次数: ' + stats.totalCounts + '\n';
-    
+    var msg = 'Word Counter\n\n';
+    msg += 'Total runs: ' + stats.totalCounts + '\n';
+
     if (stats.history.length > 0) {
         var last = stats.history[stats.history.length - 1];
-        msg += '\n最近统计:\n';
-        msg += '字数: ' + last.words + '\n';
-        msg += '字符数: ' + last.characters + '\n';
-        msg += '时间: ' + last.time.substring(0, 19).replace('T', ' ');
+        msg += '\nMost recent run:\n';
+        msg += 'Words: ' + last.words + '\n';
+        msg += 'Characters: ' + last.characters + '\n';
+        msg += 'Time: ' + last.time.substring(0, 19).replace('T', ' ');
     }
-    
+
     ZhiYu.showMessage(msg);
 }
 
+/**
+ * Command handler: alias for {@link showWordCount}.
+ */
 function showWordCountCommand() {
     showWordCount();
 }
