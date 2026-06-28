@@ -1,5 +1,5 @@
 /**
- * [Local] TOC Generator - 目录生成器
+ * TOC Generator - 目录生成器
  * 
  * 功能：自动扫描 Markdown 文档中的所有标题并生成目录
  * 类型：本地插件（无需网络）

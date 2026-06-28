@@ -1,5 +1,5 @@
 /**
- * [Remote] Link Preview - 链接预览
+ * Link Preview - 链接预览
  * 
  * 功能：自动获取 URL 的 meta 信息并生成预览卡片
  * 类型：远程插件（需要网络权限）

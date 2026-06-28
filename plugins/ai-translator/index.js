@@ -1,5 +1,5 @@
 /**
- * [Remote] AI Translator - AI 翻译器
+ * AI Translator - AI 翻译器
  * 
  * 功能：使用 AI 服务自动翻译选中的文本
  * 类型：远程插件（需要 AI 访问权限）

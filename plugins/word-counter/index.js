@@ -1,5 +1,5 @@
 /**
- * [Local] Word Counter - 字数统计
+ * Word Counter - 字数统计
  * 
  * 功能：实时统计 Markdown 文档的字数、字符数、段落数
  * 类型：本地插件（无需网络）

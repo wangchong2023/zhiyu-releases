@@ -1,10 +1,10 @@
 [
   {
     "id": "toc-generator",
-    "name": "TOC Generator",
+    "name": "Table of Contents Generator",
     "author": "ZhiYu Team",
     "version": "0.0.1",
-    "description": "Automatically parse headers within Markdown documents to construct a dynamic, clickable table of contents (TOC). Supports nested lists, customizable depth settings, and smooth anchor scrolling for enhanced long-form document navigation.",
+    "description": "Automatically parse headers within Markdown documents to construct a dynamic, clickable table of contents. Supports nested lists, customizable depth settings, and smooth anchor scrolling for enhanced long-form document navigation.",
     "repo": "wangchong2023/zhiyu-releases"
   },
   {
